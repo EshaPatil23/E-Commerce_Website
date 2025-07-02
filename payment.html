@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment - ShopSmart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #1e1e2f;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #1e1e2f;
+    }
+
+    label {
+      display: block;
+      margin: 0.8rem 0 0.3rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #b2185c;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #921047;
+    }
+
+    .success-message {
+      text-align: center;
+      color: green;
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">ShopSmart</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Payment Information</h2>
+    <form id="paymentForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="address">Shipping Address</label>
+      <input type="text" id="address" required />
+
+      <label for="method">Payment Method</label>
+      <select id="method" required>
+        <option value="">--Select--</option>
+        <option value="online">Online Payment</option>
+        <option value="cod">Cash on Delivery</option>
+      </select>
+
+      <div id="cardSection" class="hidden">
+        <label for="card">Card Number</label>
+        <input type="number" id="card" maxlength="16" />
+
+        <label for="expiry">Expiry Date (MM/YY)</label>
+        <input type="text" id="expiry" placeholder="MM/YY" />
+
+        <label for="cvv">CVV</label>
+        <input type="tel" id="cvv" maxlength="3" />
+      </div>
+
+      <button type="submit" class="btn">DONE</button>
+    </form>
+
+    <div id="successMessage" class="success-message" style="display: none;">
+      ✅ Payment Successful! Thank you for shopping with us.
+    </div>
+  </div>
+
+  <script>
+    const methodSelect = document.getElementById('method');
+    const cardSection = document.getElementById('cardSection');
+    const form = document.getElementById('paymentForm');
+    const successMsg = document.getElementById('successMessage');
+
+    methodSelect.addEventListener('change', function () {
+      if (this.value === 'online') {
+        cardSection.classList.remove('hidden');
+        cardSection.querySelectorAll('input').forEach(input => input.required = true);
+      } else {
+        cardSection.classList.add('hidden');
+        cardSection.querySelectorAll('input').forEach(input => input.required = false);
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const paymentMethod = methodSelect.value;
+
+      if (!paymentMethod) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      // Simulate processing
+      setTimeout(() => {
+        localStorage.removeItem('cart'); // Clear cart
+        successMsg.innerText =
+          paymentMethod === 'online'
+            ? "✅ Payment Successful via Online Payment! Thank you for shopping with us."
+            : "💵 Order placed with Cash on Delivery! Thank you for shopping with us.";
+        successMsg.style.display = 'block';
+        form.reset();
+        cardSection.classList.add('hidden');
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
