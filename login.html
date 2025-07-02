@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - ShopSmart</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #1e1e2f, #00c8ff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #1e1e2f;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 0.6rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: #1e1e2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #00c8ff;
+    }
+
+    .msg {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: red;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 1rem;
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .register-link a {
+      color: #00c8ff;
+      text-decoration: none;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="loginUser()">Login</button>
+    <div class="msg" id="message"></div>
+    <div class="register-link">Don't have an account? <a href="register.html">Register here</a></div>
+  </div>
+
+  <script>
+    function loginUser() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const msg = document.getElementById("message");
+
+      if (!email || !password) {
+        msg.textContent = "Please enter both email and password.";
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      const matchedUser = users.find(user => user.email === email && user.password === password);
+
+      if (matchedUser) {
+        localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
+        msg.style.color = "green";
+        msg.textContent = "Login successful! Redirecting...";
+        setTimeout(() => {
+          window.location.href = "index.html"; // or profile.html
+        }, 1500);
+      } else {
+        msg.style.color = "red";
+        msg.textContent = "Invalid email or password.";
+      }
+    }
+  </script>
+
+</body>
+</html>
