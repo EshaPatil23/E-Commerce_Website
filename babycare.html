@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baby Care - ShopSmart</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0fdf4;
+    }
+
+    nav {
+      background-color: #065f46;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #047857;
+      margin-bottom: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-info h2 {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-info p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      color: #10b981;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .rating {
+      color: #f59e0b;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .buy-btn {
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .buy-btn:hover {
+      background-color: #0369a1;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">ShopSmart</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Baby Care Essentials</h1>
+    <div class="product-grid">
+
+<!-- Product 1 -->
+<div class="product-card">
+  <img src="e.jpg" alt="Baby Lotion">
+  <div class="product-info">
+    <h2>Gentle Baby Lotion</h2>
+    <p class="price">₹249</p>
+    <p class="rating">⭐ 4.5 (320)</p>
+    <button class="buy-btn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Product 2 -->
+<div class="product-card">
+  <img src="e2.jpg" alt="Baby Shampoo">
+  <div class="product-info">
+    <h2>Tear-Free Baby Shampoo</h2>
+    <p class="price">₹199</p>
+    <p class="rating">⭐ 4.4 (280)</p>
+    <button class="buy-btn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Product 3 -->
+<div class="product-card">
+  <img src="e3.jpg" alt="Diaper Cream">
+  <div class="product-info">
+    <h2>Natural Diaper Cream</h2>
+    <p class="price">₹179</p>
+    <p class="rating">⭐ 4.3 (180)</p>
+    <button class="buy-btn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Product 4 -->
+<div class="product-card">
+  <img src="e4.jpg" alt="Wipes">
+  <div class="product-info">
+    <h2>Organic Baby Wipes</h2>
+    <p class="price">₹99</p>
+    <p class="rating">⭐ 4.2 (150)</p>
+    <button class="buy-btn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Product 5 -->
+<div class="product-card">
+  <img src="ee.jpg" alt="Feeding Bottle">
+  <div class="product-info">
+    <h2>Anti-Colic Bottle</h2>
+    <p class="price">₹299</p>
+    <p class="rating">⭐ 4.6 (420)</p>
+    <button class="buy-btn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Product 6 -->
+<div class="product-card">
+  <img src="e6.jpg" alt="Baby Oil">
+  <div class="product-info">
+    <h2>Massage Baby Oil</h2>
+    <p class="price">₹219</p>
+    <p class="rating">⭐ 4.5 (250)</p>
+    <button class="buy-btn">Add to Cart</button>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+<script>
+  // Function to get cart from localStorage or create an empty one
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+
+  // Function to save cart to localStorage
+  function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  // Add to Cart logic
+  const buttons = document.querySelectorAll('.buy-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault(); // ✅ Prevent default form or button behavior
+
+      const card = this.closest('.product-card');
+      const name = card.querySelector('h2').innerText;
+      const price = parseInt(card.querySelector('.price').innerText.replace('₹', ''));
+      const image = card.querySelector('img').src;
+
+      let cart = getCart();
+      const existingProduct = cart.find(p => p.name === name);
+      if (existingProduct) {
+        existingProduct.qty += 1;
+      } else {
+        cart.push({ name, price, image, qty: 1 });
+      }
+
+      saveCart(cart);
+
+      // Visual confirmation
+      const alert = document.createElement('div');
+      alert.innerText = "✅ Product added to cart";
+      alert.style.position = 'fixed';
+      alert.style.top = '20px';
+      alert.style.right = '20px';
+      alert.style.backgroundColor = '#10b981';
+      alert.style.color = 'white';
+      alert.style.padding = '10px 20px';
+      alert.style.borderRadius = '8px';
+      alert.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
+      document.body.appendChild(alert);
+      setTimeout(() => alert.remove(), 2000);
+    });
+  });
+</script>
+</body>
+</html>
