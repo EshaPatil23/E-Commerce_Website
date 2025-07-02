@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home & Living - ShopSmart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #d2ccc4, #2f4353);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: rgba(30, 30, 47, 0.95);
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #00c8ff;
+    }
+
+    .container {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #fff;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 200, 255, 0.3);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-details {
+      margin-top: 1rem;
+    }
+
+    .product-details h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .price {
+      font-size: 1rem;
+      color: #00ffd5;
+      font-weight: bold;
+    }
+
+    .rating {
+      font-size: 0.95rem;
+      color: #fcd34d;
+      margin-bottom: 0.5rem;
+    }
+
+    .add-to-cart {
+      background-color: #00c8ff;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-to-cart:hover {
+      background-color: #009ecb;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">ShopSmart</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Home & Living</h1>
+    <div class="grid">
+
+      <div class="product-card">
+        <img src="h1.jpg" alt="Cushion">
+        <div class="product-details">
+          <h3>Comfy Cushion</h3>
+          <p class="price">₹1,400</p>
+          <p class="rating">⭐ 4.3 (850)</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="h2.jpg" alt="Lamp">
+        <div class="product-details">
+          <h3>Modern Lamp</h3>
+          <p class="price">₹1,299</p>
+          <p class="rating">⭐ 4.7 (1,200)</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="h3.jpg" alt="Chair">
+        <div class="product-details">
+          <h3>Accent Chair</h3>
+          <p class="price">₹3,499</p>
+          <p class="rating">⭐ 4.5 (670)</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="h4.jpg" alt="Wall Art">
+        <div class="product-details">
+          <h3>Wall Art</h3>
+          <p class="price">₹6,000</p>
+          <p class="rating">⭐ 4.2 (400)</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="h5.jpg" alt="Plant">
+        <div class="product-details">
+          <h3>Indoor Plant</h3>
+          <p class="price">₹1,200</p>
+          <p class="rating">⭐ 4.6 (530)</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="h6.jpg" alt="Shelf">
+        <div class="product-details">
+          <h3>Wooden Shelf</h3>
+          <p class="price">₹2,000</p>
+          <p class="rating">⭐ 4.8 (980)</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
