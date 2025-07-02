@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopSmart - Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: #1c2331;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00c8ff;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #1c2331;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .start-btn {
+      background-color: #00796b;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .start-btn:hover {
+      background-color: #004d40;
+    }
+
+    .features {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #00695c;
+    }
+
+    .feature-card p {
+      color: #444;
+      font-size: 1rem;
+    }
+
+    .feature-card span {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">ShopSmart</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Welcome to ShopSmart</h1>
+    <p>Your one-stop shop for all your fashion, beauty, baby, and home needs!</p>
+    <button class="start-btn" onclick="window.location.href='products.html'">Start Shopping</button>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature-card">
+      <span>🚚</span>
+      <h3>Free Delivery</h3>
+      <p>Enjoy fast & free delivery on all orders above ₹499.</p>
+    </div>
+    <div class="feature-card">
+      <span>🔒</span>
+      <h3>Secure Payments</h3>
+      <p>100% safe and encrypted checkout using trusted gateways.</p>
+    </div>
+    <div class="feature-card">
+      <span>⭐</span>
+      <h3>Top Quality Products</h3>
+      <p>Handpicked items from top-rated brands & sellers.</p>
+    </div>
+    <div class="feature-card">
+      <span>📞</span>
+      <h3>24/7 Support</h3>
+      <p>Need help? Our team is here for you anytime, anywhere.</p>
+    </div>
+  </section>
+
+</body>
+</html>
