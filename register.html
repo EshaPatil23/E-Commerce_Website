@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - ShopSmart</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #1e1e2f, #00c8ff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .register-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+
+    .register-box h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #1e1e2f;
+    }
+
+    .register-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 0.6rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .register-box button {
+      width: 100%;
+      padding: 10px;
+      background: #1e1e2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .register-box button:hover {
+      background: #00c8ff;
+    }
+
+    .msg {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: red;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 1rem;
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .login-link a {
+      color: #00c8ff;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-box">
+    <h2>Create Account</h2>
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+    <button onclick="registerUser()">Sign Up</button>
+    <div class="msg" id="message"></div>
+    <div class="login-link">Already have an account? <a href="login.html">Login here</a></div>
+  </div>
+
+  <script>
+    function registerUser() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const msg = document.getElementById("message");
+
+      if (!name || !email || !password || !confirmPassword) {
+        msg.textContent = "Please fill in all fields.";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        msg.textContent = "Passwords do not match.";
+        return;
+      }
+
+      // Save to localStorage
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      const userExists = users.find(user => user.email === email);
+      if (userExists) {
+        msg.textContent = "Email is already registered.";
+        return;
+      }
+
+      users.push({ name, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+      msg.style.color = "green";
+      msg.textContent = "Registration successful! Redirecting to login...";
+
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
