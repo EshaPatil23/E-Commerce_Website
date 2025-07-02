@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - ShopSmart</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(120deg, #1e1e2f, #00c8ff);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    nav {
+      background-color: #065f46;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding-top: 60px; /* to avoid overlap with nav */
+    }
+
+    .profile-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .profile-box h2 {
+      margin-bottom: 1rem;
+      color: #1e1e2f;
+    }
+
+    .profile-box p {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      color: #444;
+    }
+
+    .logout-btn {
+      margin-top: 1.5rem;
+      padding: 10px;
+      width: 100%;
+      background-color: #1e1e2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #00c8ff;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">ShopSmart</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="profile-box">
+      <h2>Welcome, <span id="userName">User</span>!</h2>
+      <p>Email: <span id="userEmail">user@example.com</span></p>
+      <button class="logout-btn" onclick="logoutUser()">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = user.name;
+      document.getElementById("userEmail").textContent = user.email;
+    }
+
+    function logoutUser() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>
